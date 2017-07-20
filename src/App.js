@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ThemeDefault from '../theme-default';
+// import ThemeDefault from '../theme-default';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navDrawerOpen: false,
-    };
-    this.handleChangeRequestNavDrawer = this.handleChangeRequestNavDrawer.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     navDrawerOpen: false,
+  //   };
+  //   this.handleChangeRequestNavDrawer = this.handleChangeRequestNavDrawer.bind(this);
+  // }
+  //
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.width !== nextProps.width) {
+  //     this.setState({ navDrawerOpen: nextProps.width === LARGE });
+  //   }
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.width !== nextProps.width) {
-      this.setState({ navDrawerOpen: nextProps.width === LARGE });
-    }
-  }
-
-  handleChangeRequestNavDrawer() {
-    this.setState({
-      navDrawerOpen: !this.state.navDrawerOpen,
-    });
-  }
-
-  renderLeftDrawer() {
-    const navDrawerOpen = this.state.navDrawerOpen;
-    const { isLoggedIn } = this.props;
-    if (isLoggedIn) {
-      return (
-        <LeftDrawer
-          navDrawerOpen={navDrawerOpen}
-          menus={[]}
-        />
-      );
-    }
-    return null;
-  }
+  // handleChangeRequestNavDrawer() {
+  //   this.setState({
+  //     navDrawerOpen: !this.state.navDrawerOpen,
+  //   });
+  // }
+  //
+  // renderLeftDrawer() {
+  //   const navDrawerOpen = this.state.navDrawerOpen;
+  //   const { isLoggedIn } = this.props;
+  //   if (isLoggedIn) {
+  //     return (
+  //       <LeftDrawer
+  //         navDrawerOpen={navDrawerOpen}
+  //         menus={[]}
+  //       />
+  //     );
+  //   }
+  //   return null;
+  // }
 
   render() {
     return (
