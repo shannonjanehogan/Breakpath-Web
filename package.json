@@ -8,15 +8,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-redux": "^4.4.6",
-    "react-router": "4.1.1",
-    "react-router-dom": "4.1.1",
-    "react-router-redux": "^5.0.0-alpha.4",
-    "react-scripts": "1.0.7",
-    "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.6.0",
-    "redux-logger": "^2.7.4",
-    "redux-thunk": "2.2.0"
+    "react-scripts": "1.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -29,8 +21,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^7.1.0",
-    "prettier": "^1.5.2",
-    "webpack": "^1.7.0"
+    "prettier": "^1.5.2"
   },
   "lint-staged": {
     "*.js": [
