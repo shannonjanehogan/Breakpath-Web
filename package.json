@@ -19,10 +19,10 @@
     "eslint": "3.19.0",
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
     "prettier": "^1.5.2",
-    "webpack": "^3.3.0"
+    "webpack": "^2.2.0"
   },
   "lint-staged": {
     "*.js": [
