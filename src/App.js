@@ -7,6 +7,8 @@ import Header from './components/Header.jsx';
 import LeftDrawer from './components/LeftDrawer.jsx';
 import Home from './containers/Home.jsx';
 import DebateSignUp from './containers/DebateSignUp.jsx';
+import Login from './containers/Login.jsx';
+import SignUp from './containers/SignUp.jsx';
 
 class App extends Component {
 
@@ -64,6 +66,14 @@ class App extends Component {
               <Route
                 path="/debates/new"
                 component={DebateSignUp}
+              />
+              <Route
+                path="/login"
+                component={Login}
+              />
+              <Route
+                path="/signup"
+                component={SignUp}
               />
             </Switch>
           </div>
