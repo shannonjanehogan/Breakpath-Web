@@ -25,7 +25,7 @@ class Header extends Component {
         backgroundColor: '#002154',
       },
       menuButton: {
-        marginLeft: 10,
+        marginLeft: 30,
       },
       iconsLeftContainer: {
         marginRight: 10,

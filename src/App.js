@@ -6,6 +6,7 @@ import { LARGE, SMALL } from 'material-ui/utils/withWidth';
 import Header from './components/Header.jsx';
 import LeftDrawer from './components/LeftDrawer.jsx';
 import Home from './containers/Home.jsx';
+import DebateSignUp from './containers/DebateSignUp.jsx';
 
 class App extends Component {
 
@@ -60,6 +61,10 @@ class App extends Component {
           <div style={styles.container}>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route
+                path="/debates/new"
+                component={DebateSignUp}
+              />
             </Switch>
           </div>
         </div>
