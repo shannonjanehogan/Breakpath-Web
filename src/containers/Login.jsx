@@ -9,6 +9,7 @@ class Login extends Component {
       username: '',
       password: '',
     };
+    this.handleClick = this.handleClick.bind(this);
    }
 
   handleClick() {
