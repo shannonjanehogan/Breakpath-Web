@@ -29,9 +29,7 @@ class LeftDrawer extends Component {
           paddingTop: 12,
           paddingLeft: 40,
           display: 'block',
-          color: 'white',
           fontWeight: 300,
-          textShadow: '1px 1px #444',
         },
       },
     };
