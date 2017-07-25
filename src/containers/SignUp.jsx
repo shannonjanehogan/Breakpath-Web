@@ -11,10 +11,11 @@ class Register extends Component {
       email: '',
       password: '',
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleSignUpClick = this.handleSignUpClick.bind(this);
   }
 
-  handleClick() {
+  handleSignUpClick(event) {
+    event.preventDefault();
     // TODO call redux sign up action
   }
 
@@ -27,14 +28,14 @@ class Register extends Component {
            hintText="Enter your First Name"
            floatingLabelText="First Name"
            onChange = {(event, newValue) => this.setState({ first_name: newValue })}
-           />
+         />
          <br/>
          <TextField
            style={{margin: 'auto', width: '100%'}}
            hintText="Enter your Last Name"
            floatingLabelText="Last Name"
            onChange = {(event, newValue) => this.setState({ last_name: newValue })}
-           />
+         />
          <br/>
          <TextField
            style={{margin: 'auto', width: '100%'}}
@@ -42,7 +43,7 @@ class Register extends Component {
            type="email"
            floatingLabelText="Email"
            onChange = {(event, newValue) => this.setState({ email: newValue })}
-           />
+         />
          <br/>
          <TextField
            style={{margin: 'auto', width: '100%'}}
@@ -50,13 +51,14 @@ class Register extends Component {
            hintText="Enter your Password"
            floatingLabelText="Password"
            onChange = {(event, newValue) => this.setState({ password: newValue })}
-           />
+         />
          <br/>
          <RaisedButton
            label="Sign Up"
            primary={true}
            style={{marginTop: '15px'}}
-           onClick={(event) => this.handleClick(event)}/>
+           onClick={(event) => this.handleSignUpClick(event)}
+         />
         </div>
       </div>
     );

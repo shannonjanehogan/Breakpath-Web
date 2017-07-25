@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import { Link } from 'react-router-dom';
+import SocialIcon from 'material-ui/svg-icons/social/group';
 import { spacing, typography } from 'material-ui/styles';
 
 class LeftDrawer extends Component {
@@ -44,6 +47,15 @@ class LeftDrawer extends Component {
           <span style={styles.welcome.span}>
             Welcome back!
           </span>
+        </div>
+        <div>
+          <MenuItem
+            key={0}
+            style={{fontSize: 14}}
+            primaryText={'Sign up to Debate'}
+            leftIcon={(<SocialIcon/>)}
+            containerElement={<Link to={'/debates/new'} />}
+          />
         </div>
       </Drawer>
     );

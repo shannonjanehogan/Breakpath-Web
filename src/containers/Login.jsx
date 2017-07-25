@@ -9,10 +9,11 @@ class Login extends Component {
       username: '',
       password: '',
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
    }
 
-  handleClick() {
+  handleLoginClick(event) {
+    event.preventDefault();
     // TODO call redux login action
   }
 
@@ -25,17 +26,17 @@ class Login extends Component {
              hintText="Enter your Username"
              floatingLabelText="Username"
              onChange = {(event, newValue) => this.setState({ username: newValue })}
-             />
+           />
            <br/>
-             <TextField
-               style={{margin: 'auto', width: '100%'}}
-               type="password"
-               hintText="Enter your Password"
-               floatingLabelText="Password"
-               onChange = {(event, newValue) => this.setState({ password: newValue })}
-               />
-             <br/>
-             <RaisedButton label="Login" primary={true} style={{marginTop: '15px'}} onClick={(event) => this.handleClick(event)}/>
+           <TextField
+             style={{margin: 'auto', width: '100%'}}
+             type="password"
+             hintText="Enter your Password"
+             floatingLabelText="Password"
+             onChange = {(event, newValue) => this.setState({ password: newValue })}
+           />
+           <br/>
+           <RaisedButton label="Login" primary={true} style={{marginTop: '15px'}} onClick={(event) => this.handleLoginClick(event)}/>
          </div>
       </div>
     );
