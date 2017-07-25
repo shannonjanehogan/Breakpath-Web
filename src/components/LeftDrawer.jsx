@@ -54,7 +54,7 @@ class LeftDrawer extends Component {
             style={{fontSize: 14}}
             primaryText={'Sign up to Debate'}
             leftIcon={(<SocialIcon/>)}
-            containerElement={<Link to={'debates/new'} />}
+            containerElement={<Link to={'/debates/new'} />}
           />
         </div>
       </Drawer>
