@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { LARGE, SMALL } from 'material-ui/utils/withWidth';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Header from './components/Header.jsx';
 import LeftDrawer from './components/LeftDrawer.jsx';
 import Home from './containers/Home.jsx';
+import Login from './containers/Login.jsx';
+import SignUp from './containers/SignUp.jsx';
 
 class App extends Component {
 
@@ -52,7 +52,7 @@ class App extends Component {
       },
     };
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider>
         <div>
           <Header
             styles={styles.header}
@@ -62,6 +62,14 @@ class App extends Component {
           <div style={styles.container}>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route
+                path="/login"
+                component={Login}
+              />
+              <Route
+                path="/signup"
+                component={SignUp}
+              />
             </Switch>
           </div>
         </div>
