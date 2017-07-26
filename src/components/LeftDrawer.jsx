@@ -4,6 +4,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
 import SocialIcon from 'material-ui/svg-icons/social/group';
+import LocationIcon from 'material-ui/svg-icons/social/location-city';
+import PersonAddIcon from 'material-ui/svg-icons/social/person-add';
 import { spacing, typography } from 'material-ui/styles';
 
 class LeftDrawer extends Component {
@@ -55,6 +57,20 @@ class LeftDrawer extends Component {
             primaryText={'Sign up to Debate'}
             leftIcon={(<SocialIcon/>)}
             containerElement={<Link to={'/debates/new'} />}
+          />
+          <MenuItem
+            key={1}
+            style={{fontSize: 14}}
+            primaryText={'Sorted Rooms'}
+            leftIcon={(<LocationIcon/>)}
+            containerElement={<Link to={'/sorted_rooms'} />}
+          />
+          <MenuItem
+            key={2}
+            style={{fontSize: 14}}
+            primaryText={'New Sorted Room'}
+            leftIcon={(<PersonAddIcon/>)}
+            containerElement={<Link to={'/sorted_rooms/new'} />}
           />
         </div>
       </Drawer>
