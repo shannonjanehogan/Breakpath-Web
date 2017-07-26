@@ -4,10 +4,7 @@ import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 
 class IndexSortedRooms extends Component {
-  constructor(props){
-    super(props);
-   }
-
+  
   render() {
     return (
       <div style={{margin: 'auto', width: '100%'}}>
