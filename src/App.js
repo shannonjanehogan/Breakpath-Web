@@ -9,6 +9,8 @@ import Home from './containers/Home.jsx';
 import DebateSignUp from './containers/DebateSignUp.jsx';
 import Login from './containers/Login.jsx';
 import SignUp from './containers/SignUp.jsx';
+import NewSortedRoom from './containers/NewSortedRoom.jsx';
+import IndexSortedRooms from './containers/IndexSortedRooms.jsx';
 
 class App extends Component {
 
@@ -74,6 +76,14 @@ class App extends Component {
               <Route
                 path="/signup"
                 component={SignUp}
+              />
+              <Route
+                path="/sorted_rooms/new"
+                component={NewSortedRoom}
+              />
+              <Route
+                path="/sorted_rooms"
+                component={IndexSortedRooms}
               />
             </Switch>
           </div>

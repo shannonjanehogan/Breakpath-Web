@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
-class Register extends Component {
+class SignUp extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -65,4 +65,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default SignUp;
