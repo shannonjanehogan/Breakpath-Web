@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
+import dashboardIcon from '../dashboard-white.svg';
 import ActionMenu from 'material-ui/svg-icons/navigation/menu';
 
 class Header extends Component {
@@ -45,6 +46,16 @@ class Header extends Component {
         <ActionMenu />
       </IconButton>
     );
+    const customTitle = (
+      <div>
+        BreakPath
+        <img
+          src={dashboardIcon}
+          alt="logo"
+          style={{float: 'left', height: '30px', paddingTop: '15px'}}
+        />
+      </div>
+    )
     const button = (
       <div>
         <FlatButton style={style.button} containerElement={<Link to="/login" />} label={'Login'} />
@@ -54,7 +65,7 @@ class Header extends Component {
     return (
       <AppBar
         style={{ ...styles, ...style.appBar }}
-        title="BreakPath"
+        title={customTitle}
         titleStyle={{}}
         iconElementLeft={leftBurger}
         iconElementRight={button}
