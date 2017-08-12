@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as sessionActions from '../actions/session';
 
 class SignUp extends Component {
   constructor(props){
@@ -10,13 +14,14 @@ class SignUp extends Component {
       last_name: '',
       email: '',
       password: '',
+      username: '',
     };
     this.handleSignUpClick = this.handleSignUpClick.bind(this);
   }
 
   handleSignUpClick(event) {
     event.preventDefault();
-    // TODO call redux sign up action
+    this.props.actions.signup(this.state);
   }
 
   render() {
@@ -35,6 +40,13 @@ class SignUp extends Component {
            hintText="Enter your Last Name"
            floatingLabelText="Last Name"
            onChange = {(event, newValue) => this.setState({ last_name: newValue })}
+         />
+         <br/>
+         <TextField
+           style={{margin: 'auto', width: '100%'}}
+           hintText="Enter your Username"
+           floatingLabelText="Username"
+           onChange = {(event, newValue) => this.setState({ username: newValue })}
          />
          <br/>
          <TextField
@@ -65,4 +77,23 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+SignUp.propTypes = {
+  actions: PropTypes.shape({
+    signup: PropTypes.func.isRequired,
+  }).isRequired,
+  errorMessage: PropTypes.string.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.session.errorMessage,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
