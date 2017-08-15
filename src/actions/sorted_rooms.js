@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import SortedRoomsApi from '../api/sorted_rooms';
 
 export function isFetching(fetching) {
-  return { type: types.SORTED_ROOMS_IS_FETCHING, fetching };
+  return { type: types.FETCH_SORTED_ROOMS_REQUEST, fetching };
 }
 
 export function errorMessage(message) {
