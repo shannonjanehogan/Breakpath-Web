@@ -28,6 +28,7 @@ module.exports = {
     "arrow-body-style": [0],
     "no-console": [1],
     "strict": ["error", "global"],
-    "curly": "warn"
+    "curly": "warn",
+    "no-unused-expressions": [0],
   }
 };
