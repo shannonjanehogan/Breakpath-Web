@@ -9,6 +9,12 @@ export default function sortedRoomsReducer(state = initialState, action) {
       return { ...state, errorMessage: action.error };
     case types.FETCH_SORTED_ROOMS_REQUEST:
       return { ...state, isFetching: action.fetching };
+    case types.START_ROOM_SORTER_SUCCESS:
+      return { ...state, errorMessage: '' };
+    case types.START_ROOM_SORTER_ERROR:
+      return { ...state, errorMessage: action.error };
+    case types.START_ROOM_SORTER_REQUEST:
+      return { ...state, isFetching: true };
     default:
       return state;
   }

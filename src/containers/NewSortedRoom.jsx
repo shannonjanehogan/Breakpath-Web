@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as vpiPreferencesActions from '../actions/vpi_preferences';
+import * as sortedRoomsAction from '../actions/sorted_rooms';
 
 class NewSortedRoom extends Component {
   constructor(props){
@@ -17,7 +22,8 @@ class NewSortedRoom extends Component {
 
   handleNewSortedRoomClick(event) {
     event.preventDefault();
-    // TODO call redux login action
+    this.props.actions.createVPIPreferences;
+    this.props.sortedRoomsActions.startRoomSorter;
   }
 
   handleRoomTypeChange = (event, index, value) => {
@@ -70,4 +76,27 @@ class NewSortedRoom extends Component {
   }
 }
 
-export default NewSortedRoom;
+NewSortedRoom.propTypes = {
+  actions: PropTypes.shape({
+    createVPIPreferences: PropTypes.func.isRequired,
+  }).isRequired,
+  sortedRoomsActions: PropTypes.shape({
+    startRoomSorter: PropTypes.func.isRequired,
+  }).isRequired,
+  errorMessage: PropTypes.string.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.vpi_preferences.errorMessage,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(vpiPreferencesActions, dispatch),
+    sortedRoomsActions: bindActionCreators(sortedRoomsAction, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewSortedRoom);

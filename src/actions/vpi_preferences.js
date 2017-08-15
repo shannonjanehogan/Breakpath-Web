@@ -1,4 +1,3 @@
-import { push } from 'react-router-redux';
 import * as types from './actionTypes';
 import VPIPreferencesApi from '../api/session';
 
@@ -22,7 +21,6 @@ export function createVPIPreferences(formData) {
       .then(response => response.json())
       .then((response) => {
         if (response.status === 200) {
-          dispatch(push('/sorted_rooms'));
           dispatch(vpiPreferencesError(''));
           dispatch(vpiPreferencesCreateSuccess());
         } else {

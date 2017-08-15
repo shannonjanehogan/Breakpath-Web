@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -15,8 +17,10 @@ class SignUp extends Component {
       email: '',
       password: '',
       username: '',
+      skill_level: 'nov',
     };
     this.handleSignUpClick = this.handleSignUpClick.bind(this);
+    this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
   }
 
   handleSignUpClick(event) {
@@ -24,7 +28,25 @@ class SignUp extends Component {
     this.props.actions.signup(this.state);
   }
 
+  handleSkillLevelChange = (event, index, value) => {
+    const state = this.state;
+    state.skill_level = value;
+    this.setState({ state });
+  }
+
   render() {
+    const skillLevelSelectField =  (
+      <SelectField
+        style={{margin: 'auto', width: '100%'}}
+        floatingLabelText="Skill Level"
+        value={this.state.skill_level}
+        onChange={this.handleSkillLevelChange}
+      >
+        <MenuItem value={'nov'} primaryText="Novice" />
+        <MenuItem value={'pro'} primaryText="Pro" />
+        <MenuItem value={'advanced'} primaryText="Worlds" />
+      </SelectField>
+    );
     return (
       <div style={{margin: 'auto', width: '100%'}}>
         <div style={{margin: 'auto', width: '50%'}}>
@@ -48,6 +70,8 @@ class SignUp extends Component {
            floatingLabelText="Username"
            onChange = {(event, newValue) => this.setState({ username: newValue })}
          />
+         <br/>
+         {skillLevelSelectField}
          <br/>
          <TextField
            style={{margin: 'auto', width: '100%'}}

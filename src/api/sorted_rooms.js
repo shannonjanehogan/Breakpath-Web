@@ -8,6 +8,12 @@ class SortedRoomsApi {
       mode: 'no-cors',
     });
   }
+
+  static startRoomSorter() {
+    return fetch('https://breakpath-api.herokuapp.com/start_room_sorter', {
+      mode: 'no-cors',
+    });
+  }
 }
 
 export default SortedRoomsApi;
