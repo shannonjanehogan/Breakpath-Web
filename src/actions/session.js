@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux';
 import * as types from './actionTypes';
-import session from '../api/session';
+import SessionApi from '../api/session';
 import { logIn } from '../services/auth';
 
 export function loginSuccess() {
@@ -35,7 +35,7 @@ export function signupError(error) {
 export function login(credentials) {
   return ((dispatch) => {
     dispatch(loginRequest());
-    return session
+    return SessionApi
       .login(credentials)
       .then(response => response.json())
       .then((response) => {
@@ -57,7 +57,7 @@ export function login(credentials) {
 export function signup(formData) {
   return ((dispatch) => {
     dispatch(signupRequest());
-    return session
+    return SessionApi
       .signup(formData)
       .then(response => response.json())
       .then((response) => {
