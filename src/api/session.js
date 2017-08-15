@@ -1,7 +1,8 @@
 class SessionApi {
   static login(credentials) {
-    return fetch('/login', {
+    return fetch('https://breakpath-api.herokuapp.com/login', {
       method: 'POST',
+      mode: 'no-cors',
       body: {
         email: credentials.email,
         password: credentials.password,
@@ -10,8 +11,9 @@ class SessionApi {
   }
 
   static signup(data) {
-    return fetch('/signup', {
+    return fetch('https://breakpath-api.herokuapp.com/signup', {
       method: 'POST',
+      mode: 'no-cors',
       body: {
         email: data.email,
         password: data.password,
