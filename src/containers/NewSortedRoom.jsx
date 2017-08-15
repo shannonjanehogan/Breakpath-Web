@@ -22,8 +22,8 @@ class NewSortedRoom extends Component {
 
   handleNewSortedRoomClick(event) {
     event.preventDefault();
-    this.props.actions.createVPIPreferences;
-    this.props.sortedRoomsActions.startRoomSorter;
+    this.props.actions.createVPIPreferences(this.state);
+    this.props.sortedRoomsActions.startRoomSorter();
   }
 
   handleRoomTypeChange = (event, index, value) => {
