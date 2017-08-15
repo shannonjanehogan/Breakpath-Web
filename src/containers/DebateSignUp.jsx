@@ -3,6 +3,10 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as debateSignUpActions from '../actions/debate_sign_up';
 
 class DebateSignUp extends Component {
 
@@ -36,7 +40,7 @@ class DebateSignUp extends Component {
 
   handleDebateSignUpClick(event) {
     event.preventDefault();
-    // TODO call redux login action
+    this.props.actions.debateSignup(this.state.preferences);
   }
 
   render() {
@@ -104,4 +108,23 @@ class DebateSignUp extends Component {
   }
 }
 
-export default DebateSignUp;
+DebateSignUp.propTypes = {
+  actions: PropTypes.shape({
+    debateSignup: PropTypes.func.isRequired,
+  }).isRequired,
+  errorMessage: PropTypes.string.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.debate_sign_up.errorMessage,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(debateSignUpActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DebateSignUp);

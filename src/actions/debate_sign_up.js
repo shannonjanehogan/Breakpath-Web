@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux';
 import * as types from './actionTypes';
-import DebateSignUpApi from '../api/sorted_rooms';
+import DebateSignUpApi from '../api/debate_sign_up';
 
 export function debateSignupSuccess() {
   return { type: types.DEBATE_SIGN_UP_SUCCESS };
