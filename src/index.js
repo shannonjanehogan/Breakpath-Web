@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { ConnectedRouter } from 'react-router-redux';
+import { Provider } from 'react-redux';
+import { store, history } from './store/configureStore';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -11,9 +13,11 @@ import './index.css';
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App/>
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root')
 );
 registerServiceWorker();

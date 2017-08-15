@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as sessionActions from '../actions/session';
 
 class Login extends Component {
   constructor(props){
@@ -14,7 +18,7 @@ class Login extends Component {
 
   handleLoginClick(event) {
     event.preventDefault();
-    // TODO call redux login action
+    this.props.actions.login(this.state)
   }
 
   render() {
@@ -43,4 +47,23 @@ class Login extends Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  actions: PropTypes.shape({
+    login: PropTypes.func.isRequired,
+  }).isRequired,
+  errorMessage: PropTypes.string.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.session.errorMessage,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
