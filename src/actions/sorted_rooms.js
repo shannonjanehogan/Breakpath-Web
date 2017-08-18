@@ -30,7 +30,7 @@ export function fetchSortedRooms(queryParams) {
   return (dispatch) => {
     dispatch(isFetching(true));
     SortedRoomsApi
-      .exec('fetchAll', queryParams)
+      .fetchAll()
       .then((response) => {
         if (response.status === 200) {
           const sortedRooms = response.body.data;
