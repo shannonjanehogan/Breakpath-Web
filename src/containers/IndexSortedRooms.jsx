@@ -1,90 +1,60 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as sortedRoomsActions from '../actions/sorted_rooms';
+import SortedRoom from '../components/SortedRoom';
+import Loading from '../components/Loading';
 
 class IndexSortedRooms extends Component {
-  
+  constructor(props){
+    super(props);
+    this.state = {
+      sortedRooms: [],
+    };
+  }
+
+  componentWillMount() {
+    this.props.actions.fetchSortedRooms();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.sortedRooms) {
+      this.setState({ sortedRooms: nextProps.sortedRooms });
+    }
+  }
+
   render() {
+    if (this.state.sortedRooms.length === 0) {
+      return (<Loading
+        message="Looks like the rooms haven't been sorted yet!"
+      />);
+    }
+    const sortedRoomsArray = this.state.sortedRooms
     return (
-      <div style={{margin: 'auto', width: '100%'}}>
-        <div style={{margin: 'auto', width: '70%'}}>
-          <h2 style={{textAlign: 'center'}}> Sorted Rooms </h2>
-          <Card>
-            <CardTitle title="BUCH B302" subtitle="Proam" style={{margin: 'auto'}} />
-            <CardText style={{paddingTop: 0}}>
-              <h4> Judges </h4>
-              <Chip>
-                <Avatar size={32}>Pro </Avatar>
-                Dumbledore
-              </Chip>
-              <Chip>
-                <Avatar size={32}>Nov </Avatar>
-                Ron
-              </Chip>
-            </CardText>
-
-            <Card style={{width: '50%'}}>
-              <CardTitle title="OG" subtitle="Proam" />
-              <CardText>
-                <Chip>
-                  <Avatar size={32}>Pro </Avatar>
-                  Rob
-                </Chip>
-                <Chip>
-                  <Avatar size={32}>Nov </Avatar>
-                  Lupin
-                </Chip>
-              </CardText>
-            </Card>
-
-            <Card style={{width: '50%', float: 'right', marginTop: -190}}>
-              <CardTitle title="OO" subtitle="Proam" />
-              <CardText>
-                <Chip>
-                  <Avatar size={32}>Nov </Avatar>
-                  Snape
-                </Chip>
-                <Chip>
-                  <Avatar size={32}>Pro </Avatar>
-                  Harry
-                </Chip>
-              </CardText>
-            </Card>
-
-            <Card style={{width: '50%', float: 'left'}}>
-              <CardTitle title="CG" subtitle="Proam" />
-              <CardText>
-                <Chip>
-                  <Avatar size={32}>Nov </Avatar>
-                  Fred
-                </Chip>
-                <Chip>
-                  <Avatar size={32}>Pro </Avatar>
-                  George
-                </Chip>
-              </CardText>
-            </Card>
-
-            <Card style={{width: '50%', float: 'right'}}>
-              <CardTitle title="CO" subtitle="Proam" />
-              <CardText>
-                <Chip>
-                  <Avatar size={32}>Nov </Avatar>
-                  Hermione
-                </Chip>
-                <Chip>
-                  <Avatar size={32}>Pro </Avatar>
-                  Lily
-                </Chip>
-              </CardText>
-            </Card>
-
-          </Card>
-        </div>
-      </div>
+      <SortedRoom />
     );
   }
 }
 
-export default IndexSortedRooms;
+IndexSortedRooms.propTypes = {
+  actions: PropTypes.shape({
+    fetchSortedRooms: PropTypes.func.isRequired,
+  }).isRequired,
+  errorMessage: PropTypes.string.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.sorted_rooms.errorMessage,
+    sortedRooms: state.sorted_rooms.data,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(sortedRoomsActions, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexSortedRooms);
