@@ -30,9 +30,22 @@ class IndexSortedRooms extends Component {
         message="Looks like the rooms haven't been sorted yet!"
       />);
     }
-    const sortedRoomsArray = this.state.sortedRooms
+    const sortedRoomsArray = this.state.sortedRooms.map((sortedRoom) => {
+      return (<SortedRoom
+        key={sortedRoom.id}
+        judges={sortedRoom.judges}
+        room={sortedRoom.room}
+        skill_level={sortedRoom.skill_level}
+        og={sortedRoom.og}
+        oo={sortedRoom.oo}
+        cg={sortedRoom.cg}
+        co={sortedRoom.co}
+      />);
+    })
     return (
-      <SortedRoom />
+      <div>
+        {sortedRoomsArray}
+      </div>
     );
   }
 }

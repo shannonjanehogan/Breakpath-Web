@@ -26,21 +26,17 @@ export function startRoomSorterSuccess() {
   return { type: types.START_ROOM_SORTER_SUCCESS };
 }
 
-export function fetchSortedRooms(queryParams) {
+export function fetchSortedRooms() {
   return (dispatch) => {
     dispatch(isFetching(true));
     SortedRoomsApi
       .fetchAll()
-      .then((response) => {
-        if (response.status === 200) {
-          const sortedRooms = response.body.data;
-          dispatch(isFetching(false));
-          dispatch(errorMessage(''));
-          dispatch(fetchSortedRoomsSuccess(sortedRooms));
-        } else {
-          dispatch(isFetching(false));
-          dispatch(errorMessage(response.status));
-        }
+      .then((jsonResponse) => {
+        return jsonResponse.json();
+      }).then((response) => {
+        dispatch(isFetching(false));
+        dispatch(errorMessage(''));
+        dispatch(fetchSortedRoomsSuccess(response));
       }).catch((error) => {
         dispatch(isFetching(false));
         dispatch(errorMessage(error.message));

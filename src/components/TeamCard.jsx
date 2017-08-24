@@ -7,15 +7,15 @@ import Chip from 'material-ui/Chip';
 const TeamCard = ((props) => {
   return (
     <Card style={props.styles}>
-      <CardTitle title={props.position} subtitle={props.teamType} />
+      <CardTitle title={props.position} subtitle={props.team.debater_one.skill_level} />
       <CardText>
         <Chip>
-          <Avatar size={32}> {props.debaterOneSkillLevel} </Avatar>
-          {props.debaterOneName}
+          <Avatar size={32}> {props.team.debater_one.skill_level} </Avatar>
+          {props.team.debater_one.first_name}
         </Chip>
         <Chip>
-          <Avatar size={32}> {props.debaterTwoSkillLevel} </Avatar>
-          {props.debaterTwoName}
+          <Avatar size={32}> {props.team.debater_one.skill_level} </Avatar>
+          {props.team.debater_two.first_name}
         </Chip>
       </CardText>
     </Card>

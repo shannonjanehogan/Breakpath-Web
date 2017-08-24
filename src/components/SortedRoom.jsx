@@ -5,62 +5,49 @@ import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import TeamCard from './TeamCard';
 
-const SortedRoom = (() => {
+const SortedRoom = ((props) => {
+  const judges = props.judges.map((judge) => {
+    return (<Chip key={judge.id}>
+      <Avatar size={32}> {judge.skill_level} </Avatar>
+      {judge.first_name}
+    </Chip>);
+  })
   return (
     <div style={{margin: 'auto', width: '100%'}}>
       <div style={{margin: 'auto', width: '70%'}}>
         <h2 style={{textAlign: 'center'}}> Sorted Rooms </h2>
         <Card>
-          <CardTitle title="BUCH B302" subtitle="Proam" style={{margin: 'auto'}} />
+          <CardTitle title={props.room} subtitle={props.skill_level} style={{margin: 'auto'}} />
           <CardText style={{paddingTop: 0}}>
             <h4> Judges </h4>
-            <Chip>
-              <Avatar size={32}>Pro </Avatar>
-              Dumbledore
-            </Chip>
-            <Chip>
-              <Avatar size={32}>Nov </Avatar>
-              Ron
-            </Chip>
+            {judges}
           </CardText>
 
           <TeamCard
             position="OG"
             teamType="Proam"
-            debaterOneSkillLevel="Pro"
-            debaterOneName="Rob"
-            debaterTwoSkillLevel="Nov"
-            debaterTwoName="Lupin"
+            team={props.og}
             styles={{width: '50%'}}
           />
 
           <TeamCard
             position="OO"
             teamType="Proam"
-            debaterOneSkillLevel="Nov"
-            debaterOneName="Snape"
-            debaterTwoSkillLevel="Pro"
-            debaterTwoName="Harry"
+            team={props.oo}
             styles={{width: '50%', float: 'right', marginTop: -190}}
           />
 
           <TeamCard
             position="CG"
             teamType="Proam"
-            debaterOneSkillLevel="Nov"
-            debaterOneName="Fred"
-            debaterTwoSkillLevel="Pro"
-            debaterTwoName="George"
+            team={props.cg}
             styles={{width: '50%', float: 'left'}}
           />
 
           <TeamCard
             position="CO"
             teamType="Proam"
-            debaterOneSkillLevel="Nov"
-            debaterOneName="Lily"
-            debaterTwoSkillLevel="Pro"
-            debaterTwoName="Hermione"
+            team={props.co}
             styles={{width: '50%', float: 'right'}}
           />
 
