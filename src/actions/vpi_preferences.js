@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import VPIPreferencesApi from '../api/session';
+import VPIPreferencesApi from '../api/vpi_preferences';
 
 export function vpiPreferencesCreateSuccess() {
   return { type: types.VPI_PREFERENCES_SUCCESS };
@@ -17,7 +17,7 @@ export function createVPIPreferences(formData) {
   return ((dispatch) => {
     dispatch(vpiPreferencesCreateRequest());
     return VPIPreferencesApi
-      .signup(formData)
+      .create(formData)
       .then(response => response.json())
       .then((response) => {
         if (response.status === 200) {

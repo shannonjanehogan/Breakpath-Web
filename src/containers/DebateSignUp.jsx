@@ -13,34 +13,23 @@ class DebateSignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      preferences: {
-        first_name: '',
-        last_name: '',
-        partner_preference: null,
-        debate_preference: 'debate_or_judge',
-        skill_level: 'nov',
-      },
+      name: '',
+      partner_preference: null,
+      debater_preference: 'debate_or_judge',
     };
     this.handleDebatePreferenceChange = this.handleDebatePreferenceChange.bind(this);
-    this.handleSkillLevelChange = this.handleSkillLevelChange.bind(this);
     this.handleDebateSignUpClick = this.handleDebateSignUpClick.bind(this);
   }
 
   handleDebatePreferenceChange = (event, index, value) => {
     const state = this.state;
-    state.preferences.debate_preference = value;
-    this.setState({ state });
-  }
-
-  handleSkillLevelChange = (event, index, value) => {
-    const state = this.state;
-    state.preferences.skill_level = value;
+    state.debater_preference = value;
     this.setState({ state });
   }
 
   handleDebateSignUpClick(event) {
     event.preventDefault();
-    this.props.actions.debateSignup(this.state.preferences);
+    this.props.actions.debateSignup(this.state);
   }
 
   render() {
@@ -48,7 +37,7 @@ class DebateSignUp extends Component {
       <SelectField
         style={{margin: 'auto', width: '100%'}}
         floatingLabelText="Debate Preference"
-        value={this.state.preferences.debate_preference}
+        value={this.state.debater_preference}
         onChange={this.handleDebatePreferenceChange}
       >
         <MenuItem value={'debate'} primaryText="Debate" />
@@ -56,33 +45,14 @@ class DebateSignUp extends Component {
         <MenuItem value={'debate_or_judge'} primaryText="Indifferent" />
       </SelectField>
     );
-    const skillLevelSelectField =  (
-      <SelectField
-        style={{margin: 'auto', width: '100%'}}
-        floatingLabelText="Skill Level"
-        value={this.state.preferences.skill_level}
-        onChange={this.handleSkillLevelChange}
-      >
-        <MenuItem value={'nov'} primaryText="Novice" />
-        <MenuItem value={'pro'} primaryText="Pro" />
-        <MenuItem value={'advanced'} primaryText="Worlds" />
-      </SelectField>
-    );
     return (
       <div style={{margin: 'auto', width: '100%'}}>
         <div style={{margin: 'auto', width: '50%'}}>
            <TextField
              style={{margin: 'auto', width: '100%'}}
-             hintText="Enter your first name"
-             floatingLabelText="First Name"
-             onChange = {(event, newValue) => this.setState({ first_name: newValue })}
-           />
-           <br/>
-           <TextField
-             style={{margin: 'auto', width: '100%'}}
-             hintText="Enter your last name"
-             floatingLabelText="Last Name"
-             onChange = {(event, newValue) => this.setState({ last_name: newValue })}
+             hintText="Enter your name"
+             floatingLabelText="Name"
+             onChange = {(event, newValue) => this.setState({ name: newValue }) }
            />
            <br/>
            <TextField
@@ -93,8 +63,6 @@ class DebateSignUp extends Component {
            />
            <br/>
            {debatePreferenceSelectField}
-           <br/>
-           {skillLevelSelectField}
            <br/>
            <RaisedButton
              label="Sign Up to Debate"
