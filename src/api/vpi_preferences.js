@@ -2,6 +2,7 @@ import qs from 'qs';
 
 class VPIPreferencesApi {
   static create(data) {
+    console.log('the data', data)
     // fetch('/users', {
     //   method: 'POST',
     //   headers: {

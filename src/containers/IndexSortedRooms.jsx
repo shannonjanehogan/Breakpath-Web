@@ -58,6 +58,7 @@ IndexSortedRooms.propTypes = {
 };
 
 function mapStateToProps(state) {
+  console.log('have received the sorted rooms', state)
   return {
     errorMessage: state.sorted_rooms.errorMessage,
     sortedRooms: state.sorted_rooms.data,

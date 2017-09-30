@@ -25,6 +25,7 @@ class SignUp extends Component {
 
   handleSignUpClick(event) {
     event.preventDefault();
+    console.log('getting to the sign up clikc', this.state)
     this.props.actions.signup(this.state);
   }
 
@@ -105,7 +106,6 @@ SignUp.propTypes = {
   actions: PropTypes.shape({
     signup: PropTypes.func.isRequired,
   }).isRequired,
-  errorMessage: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(state) {

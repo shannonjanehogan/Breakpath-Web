@@ -28,6 +28,7 @@ export function createVPIPreferences(formData) {
         }
       })
       .catch((error) => {
+        console.log('the error', error)
         dispatch(vpiPreferencesError(error));
       });
   });

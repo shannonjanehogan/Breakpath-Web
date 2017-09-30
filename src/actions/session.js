@@ -59,8 +59,12 @@ export function signup(formData) {
     dispatch(signupRequest());
     return SessionApi
       .signup(formData)
-      .then(response => response.json())
       .then((response) => {
+        console.log('response b4 json', response)
+        return response.json();
+      })
+      .then((response) => {
+        console.log('response after json', response)
         if (response.token) {
           signup(response.token);
           dispatch(push('/debates/new'));

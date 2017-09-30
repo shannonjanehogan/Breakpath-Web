@@ -4,7 +4,6 @@ class DebateSignUpApi {
   static signup(data) {
     return fetch('http://localhost:8080/api/debate_sign_up/', {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
