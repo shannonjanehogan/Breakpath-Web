@@ -10,7 +10,7 @@ class Login extends Component {
   constructor(props){
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
     };
     this.handleLoginClick = this.handleLoginClick.bind(this);
@@ -27,9 +27,9 @@ class Login extends Component {
         <div style={{margin: 'auto', width: '50%'}}>
            <TextField
              style={{margin: 'auto', width: '100%'}}
-             hintText="Enter your Username"
-             floatingLabelText="Username"
-             onChange = {(event, newValue) => this.setState({ username: newValue })}
+             hintText="Enter your Email"
+             floatingLabelText="Email"
+             onChange = {(event, newValue) => this.setState({ email: newValue })}
            />
            <br/>
            <TextField

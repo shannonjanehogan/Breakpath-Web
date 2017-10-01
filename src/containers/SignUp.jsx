@@ -16,7 +16,6 @@ class SignUp extends Component {
       last_name: '',
       email: '',
       password: '',
-      username: '',
       skill_level: 'nov',
     };
     this.handleSignUpClick = this.handleSignUpClick.bind(this);
@@ -63,13 +62,6 @@ class SignUp extends Component {
            hintText="Enter your Last Name"
            floatingLabelText="Last Name"
            onChange = {(event, newValue) => this.setState({ last_name: newValue })}
-         />
-         <br/>
-         <TextField
-           style={{margin: 'auto', width: '100%'}}
-           hintText="Enter your Username"
-           floatingLabelText="Username"
-           onChange = {(event, newValue) => this.setState({ username: newValue })}
          />
          <br/>
          {skillLevelSelectField}
