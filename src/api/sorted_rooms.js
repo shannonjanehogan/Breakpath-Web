@@ -1,18 +1,17 @@
 // import queryString from 'query-string'
+import { getToken } from '../services/auth';
 
 class SortedRoomsApi {
   static fetchAll() {
     // once we filter sorted rooms by user id, this is how we should do it
     // return fetch(`/sorted_rooms?${queryString.stringify(params)}`);
     return fetch('http://localhost:8080/api/sorted_rooms/', {
-      headers: { 'Authorization': 'Token 8d800e57fad15f67102baef44c9beebd693f0dde'}
+      headers: { 'Authorization': `Token ${getToken()}`}
     });
   }
 
   static startRoomSorter() {
-    return fetch('http://localhost:8080/api/start_room_sorter', {
-      mode: 'no-cors',
-    });
+    return fetch('http://localhost:8080/api/start_room_sorter');
   }
 }
 

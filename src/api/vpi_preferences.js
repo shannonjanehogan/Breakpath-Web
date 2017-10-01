@@ -18,7 +18,6 @@ class VPIPreferencesApi {
       headers: {
        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
-      mode: 'no-cors',
       body: qs.stringify({
         "room_type": data.room_type,
         "judgeless_rooms": data.judgeless_rooms,

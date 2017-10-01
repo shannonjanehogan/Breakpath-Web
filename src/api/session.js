@@ -4,19 +4,19 @@ class SessionApi {
   static login(credentials) {
     return fetch('http://localhost:8080/api/session/token', {
       method: 'POST',
-      mode: 'no-cors',
-      body: {
+      headers: {
+       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      },
+      body: qs.stringify({
         email: credentials.email,
         password: credentials.password,
-      },
+      }),
     });
   }
 
   static signup(data) {
-    console.log('getting to the signup call in api', data)
     return fetch('http://localhost:8080/api/session/signup', {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
