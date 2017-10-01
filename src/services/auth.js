@@ -1,3 +1,4 @@
+/* eslint-disable */
 const TOKEN = 'token';
 
 /**
@@ -22,6 +23,12 @@ const loggedIn = (() => {
 });
 
 /**
+ * Return the current token
+ * @type {String/undefined}
+ */
+const getToken = (() => localStorage[TOKEN]);
+
+/**
  * Set the token in the local storage
  * @type {(p1:*)}
  */
@@ -37,4 +44,4 @@ const logOut = (() => {
   localStorage.removeItem(TOKEN);
 });
 
-export { checkAuth, loggedIn, logIn, logOut };
+export { checkAuth, loggedIn, logIn, logOut, getToken };

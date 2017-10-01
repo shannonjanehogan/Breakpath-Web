@@ -38,14 +38,14 @@ export function login(credentials) {
     return SessionApi
       .login(credentials)
       .then(response => response.json())
-      .then((response) => {
-        if (response.token) {
-          logIn(response.token);
+      .then((responseJson) => {
+        if (responseJson.token) {
+          logIn(responseJson.token);
           dispatch(push('/debates/new'));
           dispatch(loginError(''));
           dispatch(loginSuccess());
         } else {
-          dispatch(loginError(response));
+          dispatch(loginError(responseJson));
         }
       })
       .catch((error) => {
@@ -59,15 +59,15 @@ export function signup(formData) {
     dispatch(signupRequest());
     return SessionApi
       .signup(formData)
-      .then(response => response.json())
-      .then((response) => {
-        if (response.token) {
-          signup(response.token);
+      .then((response) => response.json())
+      .then((responseJson) => {
+        if (responseJson.token) {
+          logIn(responseJson.token);
           dispatch(push('/debates/new'));
           dispatch(signupError(''));
           dispatch(signupSuccess());
         } else {
-          dispatch(signupError(response));
+          dispatch(signupError(responseJson));
         }
       })
       .catch((error) => {

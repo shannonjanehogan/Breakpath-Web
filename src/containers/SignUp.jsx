@@ -16,7 +16,6 @@ class SignUp extends Component {
       last_name: '',
       email: '',
       password: '',
-      username: '',
       skill_level: 'nov',
     };
     this.handleSignUpClick = this.handleSignUpClick.bind(this);
@@ -25,6 +24,7 @@ class SignUp extends Component {
 
   handleSignUpClick(event) {
     event.preventDefault();
+    console.log('getting to the sign up clikc', this.state)
     this.props.actions.signup(this.state);
   }
 
@@ -64,13 +64,6 @@ class SignUp extends Component {
            onChange = {(event, newValue) => this.setState({ last_name: newValue })}
          />
          <br/>
-         <TextField
-           style={{margin: 'auto', width: '100%'}}
-           hintText="Enter your Username"
-           floatingLabelText="Username"
-           onChange = {(event, newValue) => this.setState({ username: newValue })}
-         />
-         <br/>
          {skillLevelSelectField}
          <br/>
          <TextField
@@ -105,7 +98,6 @@ SignUp.propTypes = {
   actions: PropTypes.shape({
     signup: PropTypes.func.isRequired,
   }).isRequired,
-  errorMessage: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(state) {
