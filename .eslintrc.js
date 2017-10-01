@@ -9,6 +9,7 @@ module.exports = {
     "es6": true,
     "jest": true,
     "mocha": true,
+    "shared-node-browser": true,
     "node": true
   },
   "parser": "babel-eslint",
