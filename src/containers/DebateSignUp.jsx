@@ -52,7 +52,8 @@ class DebateSignUp extends Component {
              style={{margin: 'auto', width: '100%'}}
              hintText="Enter your name"
              floatingLabelText="Name"
-             onChange = {(event, newValue) => this.setState({ name: newValue }) }
+             onChange = {(event, newValue) => this.setState({ name: newValue })
+            }
            />
            <br/>
            <TextField
