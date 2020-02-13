@@ -50,7 +50,6 @@ const SortedRoom = ((props) => {
             team={props.co}
             styles={{width: '50%', float: 'right'}}
           />
-
         </Card>
       </div>
     </div>
