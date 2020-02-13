@@ -55,6 +55,7 @@ IndexSortedRooms.propTypes = {
     fetchSortedRooms: PropTypes.func.isRequired,
   }).isRequired,
   errorMessage: PropTypes.string.isRequired,
+  sortedRooms: PropTypes.array,
 };
 
 function mapStateToProps(state) {
