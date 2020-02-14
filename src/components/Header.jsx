@@ -48,14 +48,14 @@ class Header extends Component {
       </IconButton>
     );
     const customTitle = (
-      <div>
+      <Link to="/" style={{color: 'white', textDecoration: 'none'}}>
         BreakPath
         <img
           src={dashboardIcon}
           alt="logo"
           style={{float: 'left', height: '30px', paddingTop: '15px'}}
         />
-      </div>
+      </Link>
     )
     let button;
     if (loggedIn()) {
