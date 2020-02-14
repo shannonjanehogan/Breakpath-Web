@@ -57,8 +57,13 @@ const SortedRoom = ((props) => {
 });
 
 SortedRoom.propTypes = {
-  route: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  judges: PropTypes.array.isRequired,
+  room: PropTypes.string.isRequired,
+  co: PropTypes.object.isRequired,
+  cg: PropTypes.object.isRequired,
+  og: PropTypes.object.isRequired,
+  oo: PropTypes.object.isRequired,
+  skill_level: PropTypes.string.isRequired,
 };
 
 export default SortedRoom;

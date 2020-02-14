@@ -11,6 +11,7 @@ class IndexSortedRooms extends Component {
     super(props);
     this.state = {
       sortedRooms: [],
+      errorMessage: "",
     };
   }
 
@@ -54,12 +55,11 @@ IndexSortedRooms.propTypes = {
   actions: PropTypes.shape({
     fetchSortedRooms: PropTypes.func.isRequired,
   }).isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
   sortedRooms: PropTypes.array,
 };
 
 function mapStateToProps(state) {
-  console.log('have received the sorted rooms', state)
   return {
     errorMessage: state.sorted_rooms.errorMessage,
     sortedRooms: state.sorted_rooms.data,

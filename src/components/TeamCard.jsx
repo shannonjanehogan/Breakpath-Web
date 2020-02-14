@@ -23,13 +23,9 @@ const TeamCard = ((props) => {
 });
 
 TeamCard.propTypes = {
-  style: PropTypes.shape.isRequired,
+  styles: PropTypes.object.isRequired,
   position: PropTypes.string.isRequired,
-  teamType: PropTypes.string.isRequired,
-  debaterOneSkillLevel: PropTypes.string.isRequired,
-  debaterOneName: PropTypes.string.isRequired,
-  debaterTwoSkillLevel: PropTypes.string.isRequired,
-  debaterTwoName: PropTypes.string.isRequired,
+  team: PropTypes.object.isRequired,
 };
 
 export default TeamCard;
