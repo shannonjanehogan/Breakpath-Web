@@ -1,18 +1,17 @@
 // import queryString from 'query-string'
+import { getToken } from '../services/auth';
 
 class SortedRoomsApi {
   static fetchAll() {
     // once we filter sorted rooms by user id, this is how we should do it
     // return fetch(`/sorted_rooms?${queryString.stringify(params)}`);
-    return fetch('https://breakpath-api.herokuapp.com/sorted_rooms', {
-      mode: 'no-cors',
+    return fetch('http://localhost:8080/api/sorted_rooms/', {
+      headers: { 'Authorization': `Token ${getToken()}`}
     });
   }
 
   static startRoomSorter() {
-    return fetch('https://breakpath-api.herokuapp.com/start_room_sorter', {
-      mode: 'no-cors',
-    });
+    return fetch('http://localhost:8080/api/start_room_sorter');
   }
 }
 

@@ -35,11 +35,6 @@ const HomeContainer = () => {
             <div style={{margin: '20px'}}>
             Check out the BreakPath apps for iOS and Android
             </div>
-            <div style={{margin: '20px'}}>
-            Made with
-            <i className="fa fa-heart" style={{padding: '5px'}} aria-hidden="true"></i>
-            for the University of British Columbia Debate Society
-            </div>
           </CardText>
           <CardActions>
             <NavyThemeRaisedButton

@@ -42,6 +42,10 @@ class App extends Component {
     );
   }
 
+  onOverlayClick = () => {
+    this.setState({ drawerOpen: false });
+  };
+
   render() {
     const drawerOpen = this.state.drawerOpen;
     const paddingLeftDrawerOpen = 236;

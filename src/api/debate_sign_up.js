@@ -1,15 +1,17 @@
+import qs from 'qs';
+
 class DebateSignUpApi {
   static signup(data) {
-    return fetch('https://breakpath-api.herokuapp.com/sign_up_preferences', {
+    return fetch('http://localhost:8080/api/debate_sign_up/', {
       method: 'POST',
-      mode: 'no-cors',
-      body: {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        partner_preference: data.partner_preference,
-        skill_level: data.skill_level,
-        debate_preference: data.debate_preference,
+      headers: {
+       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
+      body: qs.stringify({
+        name: data.name,
+        partner_preference: data.partner_preference,
+        debater_preference: data.debater_preference,
+      }),
     });
   }
 }

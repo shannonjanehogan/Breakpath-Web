@@ -6,6 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
 import dashboardIcon from '../dashboard-white.svg';
 import ActionMenu from 'material-ui/svg-icons/navigation/menu';
+import { loggedIn, logOut } from '../services/auth';
 
 class Header extends Component {
   constructor(props) {
@@ -47,21 +48,28 @@ class Header extends Component {
       </IconButton>
     );
     const customTitle = (
-      <div>
+      <Link to="/" style={{color: 'white', textDecoration: 'none'}}>
         BreakPath
         <img
           src={dashboardIcon}
           alt="logo"
           style={{float: 'left', height: '30px', paddingTop: '15px'}}
         />
-      </div>
+      </Link>
     )
-    const button = (
-      <div>
-        <FlatButton style={style.button} containerElement={<Link to="/login" />} label={'Login'} />
-        <FlatButton style={style.button} containerElement={<Link to="/signup" />} label={'Sign Up'} />
-      </div>
-    );
+    let button;
+    if (loggedIn()) {
+      button = (<div>
+        <FlatButton style={style.button} onClick={() => logOut()} label={'Logout'} />
+      </div>);
+    } else {
+      button = (
+        <div>
+          <FlatButton style={style.button} containerElement={<Link to="/login" />} label={'Login'} />
+          <FlatButton style={style.button} containerElement={<Link to="/signup" />} label={'Sign Up'} />
+        </div>
+      );
+    }
     return (
       <AppBar
         style={{ ...styles, ...style.appBar }}
